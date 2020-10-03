@@ -824,16 +824,16 @@ func draw_new_point_preview(overlay: Control):
 	var t: Transform2D = get_et() * shape.get_global_transform()
 	var color = Color(1, 1, 1, .5)
 	var width = 2
-	
+
 	var a
 	var mouse = overlay.get_local_mouse_position()
-	if shape is SS2D_Shape_Closed:
+	if shape is SS2D_Shape_Closed and verts.size() > 1:
 		a = t.xform(verts[verts.size() - 2])
 		var b = t.xform(verts[0])
 		overlay.draw_line(mouse, b, color, width, true)
-	else:
+	elif verts.size() > 0:
 		a = t.xform(verts[verts.size() - 1])
-	overlay.draw_line(mouse, a, color, width, true)
+		overlay.draw_line(mouse, a, color, width, true)
 	overlay.draw_texture(ICON_ADD_HANDLE, mouse - ICON_ADD_HANDLE.get_size() * 0.5)
 
 ##########
