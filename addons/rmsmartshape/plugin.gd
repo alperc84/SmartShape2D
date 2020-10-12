@@ -783,7 +783,7 @@ func draw_vert_handles(overlay: Control, t: Transform2D, verts, control_points: 
 	var width_handle_color = Color("f53351")
 	overlay.draw_line(vertex_position, icon_position, width_handle_color, 1.0, true)
 	overlay.draw_set_transform(icon_position, width_handle_normal.angle(), Vector2.ONE)
-	overlay.draw_rect(Rect2(-rect_size / 2.0, rect_size), width_handle_color, true, 1.0, true)
+	overlay.draw_rect(Rect2(-rect_size / 2.0, rect_size), width_handle_color, true, 1.0)
 	overlay.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 #	var width_handle_icon = WIDTH_HANDLES[int((width_handle_normal.angle() + PI / 8 + TAU) / PI * 4) % 4]
 #	overlay.draw_texture(width_handle_icon, icon_position)
